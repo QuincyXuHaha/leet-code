@@ -11,6 +11,7 @@ package com.quincy.leetcode;
  * @author quinc
  * @date 2018/11/12 星期一
  */
+@SuppressWarnings("AlibabaClassNamingShouldBeCamel")
 public class KAlgorithm {
 
     public String removeKDigits(String num, int k) {
@@ -23,11 +24,12 @@ public class KAlgorithm {
         StringBuilder sb = new StringBuilder(num);
         int indexOfZero = sb.indexOf("0");
         //remove all the numbers before "0" when indexOfZero<=k
+        char zero = '0';
         while (indexOfZero != -1 && indexOfZero <= k) {
             k -= indexOfZero;
             sb.delete(0, indexOfZero + 1);
             //remove leading zero
-            while (sb.length() > 0 && sb.charAt(0) == '0') {
+            while (sb.length() > 0 && sb.charAt(0) == zero) {
                 sb.deleteCharAt(0);
             }
             indexOfZero = sb.indexOf("0");
@@ -40,11 +42,11 @@ public class KAlgorithm {
             sb.deleteCharAt(i);
             k--;
         }
-        while (sb.length() > 0 && sb.charAt(0) == '0') {
+        while (sb.length() > 0 && sb.charAt(0) == zero) {
             sb.deleteCharAt(0);
         }
         num = sb.toString();
-        return num.equals("") ? "0" : num;
+        return "".equals(num) ? "0" : num;
     }
 
     public static void main(String[] args) {

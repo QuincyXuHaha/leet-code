@@ -16,13 +16,7 @@ public class LongestSubstring {
 
 
     public static int lengthOfLongestSubstring(String s) {
-        if (s == null) {
-            return 0;
-        }
         int length = s.length();
-        if (length < 2) {
-            return length;
-        }
         // 最大子串长度
         int max = 0;
         // 遍历字符串
@@ -57,7 +51,7 @@ public class LongestSubstring {
         int max = 0;
         // key为字符，value为当前字符的下一个的位置
         // 如果是ASCII的话可以直接用数组int[128]数组代替
-        Map<Character, Integer> map = new HashMap<Character, Integer>();
+        Map<Character, Integer> map = new HashMap<Character, Integer>(128);
         for (int i = 0, j = 0; j < length; j++) {
             char ch = s.charAt(j);
             if (map.containsKey(ch)) {
@@ -71,10 +65,10 @@ public class LongestSubstring {
 
 
     public static void main(String[] args) {
-        System.out.println(lengthOfLongestSubstring2("abcabcbb"));
-        System.out.println(lengthOfLongestSubstring2(""));
-        System.out.println(lengthOfLongestSubstring2(" "));
-        System.out.println(lengthOfLongestSubstring2("bbbbbbb"));
-        System.out.println(lengthOfLongestSubstring2("au"));
+        System.out.println(lengthOfLongestSubstring("abcabcbb"));
+        System.out.println(lengthOfLongestSubstring(""));
+        System.out.println(lengthOfLongestSubstring(" "));
+        System.out.println(lengthOfLongestSubstring("bbbbbbb"));
+        System.out.println(lengthOfLongestSubstring("au"));
     }
 }
