@@ -5,6 +5,7 @@ package com.quincy.proxy;
  * @date 2018/11/13 星期二
  */
 public class HelloWorld implements IHelloWord{
+    @Override
     public void sayHello() {
         System.out.println("hello-----world");
     }

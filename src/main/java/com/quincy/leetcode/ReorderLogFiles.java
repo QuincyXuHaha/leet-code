@@ -11,8 +11,8 @@ import java.util.*;
  */
 public class ReorderLogFiles {
 
-    // 80ms
     public static String[] reorderLogFiles(String[] logs) {
+        // 80ms
         String[] result = new String[logs.length];
         // 选择字母开头的->排序->转为数组
         Object[] letters = Arrays.stream(logs)
@@ -42,8 +42,8 @@ public class ReorderLogFiles {
         }
     }
 
-    // 5ms
     public String[] reorderLogFiles2(String[] logs) {
+        // 10ms
         String[] res = new String[logs.length];
         int j = logs.length - 1;
         // k为需要排序的日志内容，v为原内容
