@@ -50,7 +50,7 @@ public class ReorderLogFiles {
         Map<String, String> map = new HashMap<>();
         // 排序的日志内容
         List<String> logBodies = new ArrayList<>();
-        // 倒序可以保证数字在后面
+        // 倒序可以保证数字在后面，先排好数字
         for (int i = logs.length - 1; i >= 0; i--) {
             String logBody = getBody(logs[i]);
             if ("0".equals(logBody)) {
@@ -64,6 +64,7 @@ public class ReorderLogFiles {
 
         Collections.sort(logBodies);
         j = 0;
+        // 再正序排序字母
         for (String logBody : logBodies) {
             res[j] = map.get(logBody);
             j++;
