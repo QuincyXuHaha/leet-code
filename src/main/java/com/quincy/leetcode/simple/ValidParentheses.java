@@ -10,7 +10,7 @@ import java.util.Stack;
  * @author quinc
  * @date 2018/12/3 星期一
  */
-public class VaildParentheses {
+public class ValidParentheses {
 
     private static Map<Character, Character> mapping = new HashMap<>(6);
 
