@@ -1,4 +1,4 @@
-package com.quincy.leetcode;
+package com.quincy.leetcode.easy.array;
 
 /**
  * <a href='https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/'>Remove Duplicates from sorted array</a>
@@ -25,8 +25,7 @@ public class RemoveDuplicates {
         int i = 0;
         for (int j = 1; j < nums.length; j++) {
             if (nums[j] != nums[i]) {
-                i++;
-                nums[i] = nums[j];
+                nums[++i] = nums[j];
             }
         }
         return i + 1;
