@@ -1,4 +1,4 @@
-package com.quincy.leetcode.simple;
+package com.quincy.leetcode.easy.array;
 
 /**
  * <a href='https://leetcode-cn.com/problems/plus-one/'>merge-two-sorted-lists</a>
