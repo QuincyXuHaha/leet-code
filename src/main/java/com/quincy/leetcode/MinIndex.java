@@ -17,7 +17,7 @@ public class MinIndex {
     public static String[] findRestaurant(String[] list1, String[] list2) {
         // 时间复杂度O(n*m)
 //        int minIndex = list1.length +list2.length;
-//        List<String> res = new LinkedList<>();
+//        List<Str> res = new LinkedList<>();
 //        for (int i = 0; i < list1.length; i++) {
 //            for (int j = 0; j < list2.length; j++) {
 //                if (list1[i].equals(list2[j]) && minIndex >= i + j) {
@@ -27,7 +27,7 @@ public class MinIndex {
 //                }
 //            }
 //        }
-//        return res.toArray(new String[res.size()]);
+//        return res.toArray(new Str[res.size()]);
         // 优化，利用hashMap查询时O(1)的复杂度
         int minIndex = 2000;
         List<String> res = new LinkedList<>();
