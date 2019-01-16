@@ -1,23 +1,27 @@
 package com.quincy.leetcode.easy.string;
 
 /**
- * <a href = 'https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/32/'></a>
- * 编写一个函数，其作用是将输入的字符串反转过来。
- * <p>
- * 示例 1:
- * <p>
- * 输入: "hello"
- * 输出: "olleh"
- * 示例 2:
- * <p>
- * 输入: "A man, a plan, a canal: Panama"
- * 输出: "amanaP :lanac a ,nalp a ,nam A"
- *
  * @author quinc
  * @date 2019/1/10 星期四
  */
 public class Str {
-
+    /**
+     * <a href = 'https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/32/'></a>
+     * * 编写一个函数，其作用是将输入的字符串反转过来。
+     * * <p>
+     * * 示例 1:
+     * * <p>
+     * * 输入: "hello"
+     * * 输出: "olleh"
+     * * 示例 2:
+     * * <p>
+     * * 输入: "A man, a plan, a canal: Panama"
+     * * 输出: "amanaP :lanac a ,nalp a ,nam A"
+     * *
+     *
+     * @param s
+     * @return
+     */
     public static String reverseString(String s) {
         char[] ch = new char[s.length()];
         int idx = s.length() - 1;
@@ -100,6 +104,95 @@ public class Str {
             }
         }
         return -1;
+    }
+
+    /**
+     * <a href='https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/35/'></a>
+     * 给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的一个字母异位词。
+     * <p>
+     * 示例 1:
+     * <p>
+     * 输入: s = "anagram", t = "nagaram"
+     * 输出: true
+     * 示例 2:
+     * <p>
+     * 输入: s = "rat", t = "car"
+     * 输出: false
+     * 说明:
+     * 你可以假设字符串只包含小写字母。
+     * <p>
+     * 进阶:
+     * 如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？
+     * 对于这种通用解法可以用hashmap解决，key为字符，value为出现的次数，然后对比2个map就可以了
+     *
+     * @param s source
+     * @param t target
+     * @return match result
+     */
+    public static boolean isAnagram(String s, String t) {
+        int[] sStatistics = new int[26];
+        int[] tStatistics = new int[26];
+        char[] sChars = s.toCharArray();
+        char[] tChars = t.toCharArray();
+        for (char c : sChars) {
+            sStatistics[c - 'a'] += 1;
+        }
+        for (char c : tChars) {
+            tStatistics[c - 'a'] += 1;
+        }
+        for (int i = 0; i < 26; i++) {
+            if (sStatistics[i] != tStatistics[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * <a href='https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/36/'></a>
+     * 给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。
+     * <p>
+     * 说明：本题中，我们将空字符串定义为有效的回文串。
+     * <p>
+     * 示例 1:
+     * <p>
+     * 输入: "A man, a plan, a canal: Panama"
+     * 输出: true
+     * 示例 2:
+     * <p>
+     * 输入: "race a car"
+     * 输出: false
+     *
+     * @param s
+     * @return
+     */
+    public static boolean isPalindrome(String s) {
+        s = s.toLowerCase();
+        int i = 0, j = s.length() - 1;
+        while (i < j) {
+            char ch = s.charAt(i);
+            char ch1 = s.charAt(j);
+            if (!Character.isLetterOrDigit(ch)) {
+                i++;
+                continue;
+            }
+            if (!Character.isLetterOrDigit(ch1)) {
+                j--;
+                continue;
+            }
+            if (ch != ch1) {
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        isAnagram("a", "b");
+        System.out.println(isPalindrome("A man, a plan, a canal: Panama"));
+        System.out.println(isPalindrome("race a car"));
     }
 
 }
