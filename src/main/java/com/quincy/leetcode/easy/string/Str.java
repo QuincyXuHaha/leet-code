@@ -347,15 +347,138 @@ public class Str {
     }
 
 
+    /**
+     * <a href='https://leetcode-cn.com/problems/implement-strstr/'></a>
+     * <p>
+     * 实现 strStr() 函数。
+     * <p>
+     * 给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回  -1。
+     * <p>
+     * 示例 1:
+     * <p>
+     * 输入: haystack = "hello", needle = "ll"
+     * 输出: 2
+     * 示例 2:
+     * <p>
+     * 输入: haystack = "aaaaa", needle = "bba"
+     * 输出: -1
+     * 说明:
+     * <p>
+     * 当 needle 是空字符串时，我们应当返回什么值呢？这是一个在面试中很好的问题。
+     * <p>
+     * 对于本题而言，当 needle 是空字符串时我们应当返回 0 。这与C语言的 strstr() 以及 Java的 indexOf() 定义相符。
+     * <p>
+     * todo ：参照KMP字符串匹配算法
+     *
+     * @param haystack
+     * @param needle
+     * @return
+     */
+    public static int strStr(String haystack, String needle) {
+        return haystack.indexOf(needle);
+    }
+
+    /**
+     * 报数序列是一个整数序列，按照其中的整数的顺序进行报数，得到下一个数。其前五项如下：
+     * <p>
+     * 1.     1
+     * 2.     11
+     * 3.     21
+     * 4.     1211
+     * 5.     111221
+     * 1 被读作  "one 1"  ("一个一") , 即 11。
+     * 11 被读作 "two 1s" ("两个一"）, 即 21。
+     * 21 被读作 "one 2",  "one 1" （"一个二" ,  "一个一") , 即 1211。
+     * <p>
+     * 给定一个正整数 n（1 ≤ n ≤ 30），输出报数序列的第 n 项。
+     * <p>
+     * 注意：整数顺序将表示为一个字符串。
+     * 示例 1:
+     * <p>
+     * 输入: 1
+     * 输出: "1"
+     * 示例 2:
+     * <p>
+     * 输入: 4
+     * 输出: "1211"
+     * <p>
+     * 思路：其实就是将一个字符串按照相同数字分成各个子串，然后按照顺序拼接nv，n表示子串长度，v表示数字的值
+     * //todo
+     *
+     * @param n
+     * @return
+     */
+    public static String countAndSay(int n) {
+
+        int count = 1;
+        String ret = "1";
+        while (count <= n) {
+
+
+        }
+        return null;
+
+    }
+
+    /**
+     * 编写一个函数来查找字符串数组中的最长公共前缀。
+     * <p>
+     * 如果不存在公共前缀，返回空字符串 ""。
+     * <p>
+     * 示例 1:
+     * <p>
+     * 输入: ["flower","flow","flight"]
+     * 输出: "fl"
+     * 示例 2:
+     * <p>
+     * 输入: ["dog","racecar","car"]
+     * 输出: ""
+     * 解释: 输入不存在公共前缀。
+     * 说明:
+     * <p>
+     * 所有输入只包含小写字母 a-z 。
+     * <p>
+     * 思路：以第一个字符串为参照，调用startWith()方法，不存在则截取0-length-1的字符串，依次比较
+     *
+     * @param strs
+     * @return
+     */
+    public static String longestCommonPrefix(String[] strs) {
+        if (strs.length == 0) {
+            return "";
+        }
+        if (strs.length == 1) {
+            return strs[0];
+        }
+        String res = strs[0];
+        for (int i = 1; i < strs.length; i++) {
+            while (!strs[i].startsWith(res)) {
+                res = res.substring(0, res.length() - 1);
+                if (res.length() == 0) {
+                    return "";
+                }
+            }
+        }
+        return res;
+    }
+
+
     public static void main(String[] args) {
-        isAnagram("a", "b");
-        System.out.println(isPalindrome("A man, a plan, a canal: Panama"));
-        System.out.println(isPalindrome("race a car"));
-        System.out.println(myAtoi("  42"));
-        System.out.println(myAtoi(" -42"));
-        System.out.println(myAtoi(" words and 987"));
-        System.out.println(myAtoi(" 4193 with words"));
-        System.out.println(myAtoi(" -91283472332"));
+//        isAnagram("a", "b");
+//        System.out.println(isPalindrome("A man, a plan, a canal: Panama"));
+//        System.out.println(isPalindrome("race a car"));
+//        System.out.println(myAtoi("  42"));
+//        System.out.println(myAtoi(" -42"));
+//        System.out.println(myAtoi(" words and 987"));
+//        System.out.println(myAtoi(" 4193 with words"));
+//        System.out.println(myAtoi(" -91283472332"));
+//
+//        String idCard = "362502199411106817";
+//
+//        String year = idCard.substring(8, 9);
+//        System.out.println(year + "0后");
+        int x = 1,y=2,z=3;
+        System.out.println(y+=z--/++x);
 
     }
 
